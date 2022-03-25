@@ -4,6 +4,11 @@ import java.util.Scanner;
 public class Game {
 
     public Board[][] gameBoard;
+    public Board[] wpieces=new Board[16];
+    public Board[] bpieces=new Board[16];
+
+
+
     public void createBoard(){
         gameBoard = new Board[8][8];
         for(int i=0; i<8;i++){
@@ -15,19 +20,23 @@ public class Game {
         }
     }
 
+
     public void assignLoc(){
         int z=0;
         int y=2;
         for(int i=1; i<7;i++){
             if(i==1 || i==2){
                 if(i==1) {
-
+                    wpieces[0].setLoc(0,4);
+                    bpieces[0].setLoc(7,4);
                     gameBoard[0][4].setStatus(i);
                     gameBoard[0][4].setColor('W');
                     gameBoard[7][4].setStatus(i);
                     gameBoard[7][4].setColor('B');
                 }
                 else {
+                    wpieces[1].setLoc(0,3);
+                    bpieces[1].setLoc(7,3);
                     gameBoard[0][3].setStatus(i);
                     gameBoard[0][3].setColor('W');
                     gameBoard[7][3].setStatus(i);
@@ -57,6 +66,8 @@ public class Game {
                 y--;
 
                 }
+
+
         }
     }
 
@@ -149,9 +160,18 @@ public class Game {
 
     }*/
 
-    public int nextMove(Board g){
-        
+    /*time complexity of storing pieces and updating there location
+    when piece moves update global location
+    create an array for each player location in array stores piece and piece location
+     */
 
+
+    public int nextMove(Board g){
+        for(int var1=0; var1<0; var++){
+            g.setStatus(var1);
+
+
+        }
     }
     public void printBoard(){
         for(int a=7; a>=0; a--){

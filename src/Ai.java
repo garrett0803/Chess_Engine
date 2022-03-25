@@ -13,4 +13,8 @@ public class Ai {
 
     }
 
+    int nextMove(){
+
+    }
+
 }

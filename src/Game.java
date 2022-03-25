@@ -148,6 +148,11 @@ public class Game {
     /*public int DTC(){
 
     }*/
+
+    public int nextMove(Board g){
+        
+
+    }
     public void printBoard(){
         for(int a=7; a>=0; a--){
 

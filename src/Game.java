@@ -7,6 +7,16 @@ public class Game {
     public Board[] wpieces=new Board[16];
     public Board[] bpieces=new Board[16];
 
+    /*linked list to store each players pieces
+      data will hold abstract to piece class holding location and piece value IE (king, queen, ect)
+
+
+     */
+
+    public Node head=null;
+    public tail=null;
+    public next=null;
+
 
 
     public void createBoard(){

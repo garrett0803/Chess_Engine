@@ -17,6 +17,12 @@ public class Game {
     public tail=null;
     public next=null;
 
+    /*
+    Maybe best to include binary tree of possible moves
+    take to many resources to generate entire list maybe generate list on each opposing players moves
+    that would avoid the need for pruning the initial tree
+     */
+
 
 
     public void createBoard(){
@@ -195,6 +201,17 @@ public class Game {
         }
         System.out.println();
     }
+    public void popTree(Board gameBoard){
+
+
+    }
+    // we dont want to parse through entire tree again
+    public Node prunTree(Board gameBoard){
+
+        for(int i=0; i);
+
+    }
+
 
 
 
@@ -218,5 +235,7 @@ public class Game {
         }
 
     }
+
+    //wait till player first move then populate binary tree
 
 }

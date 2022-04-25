@@ -1,13 +1,9 @@
-/**
- * Node support class for CSCI 1933 Project 3 Spring 2021.
- *
- * @param <T> Generic type for Node class.
- */
+
 public class Node<T extends Comparable<T>> {
 
   private T data;
   private Node<T> next;
-
+ //data stored is in terms of
   public Node(T data) {
     this.data = data;
     this.next = null;

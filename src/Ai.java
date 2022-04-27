@@ -1,6 +1,8 @@
 public class Ai {
     private Piece aiPiece;
     private Piece playerPiece;
+    public Board gBoard
+
 
 
 
@@ -14,24 +16,25 @@ public class Ai {
 
 
 
-    public Ai(Piece aiPiece, Piece playerPiece){
-        aiPiece=aiPiece;
-        playerPiece=playerPiece;
+    public Ai(Piece aiPiece, Piece playerPiece) {
+        aiPiece = aiPiece;
+        playerPiece = playerPiece;
 
     }
 
-    public int asDanger(){
-        for(int i=0;)
+
+    public void updatePos(Piece x, char play){
+        if(play=='W'){
+            playerPiece=x;
+        }
+        else{
+            aiPiece==;
+        }
+
 
 
 
     }
-    void assignValues(){
-
-
-
-    }
-
 
     int nextMove(){
 

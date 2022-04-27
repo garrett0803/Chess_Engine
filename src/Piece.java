@@ -11,6 +11,8 @@ public class Piece {
         this.color = color;
         this.type = type;
     }
+
+
     public int getRow(){
         return row;
     }

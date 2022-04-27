@@ -5,6 +5,8 @@ public class Game {
 
     public Board[][] gameBoard;
     public Board[] wpieces=new Board[16];
+    public Piece[] player= new Piece[16]
+    public Piece[] ai= new Piece[16];
     public Board[] bpieces=new Board[16];
 
     /*linked list to store each players pieces
@@ -13,9 +15,9 @@ public class Game {
 
      */
 
-    public Node head=null;
-    public tail=null;
-    public next=null;
+    //public Node head=null;
+   // public tail=null;
+    //public next=null;
 
     /*
     Maybe best to include binary tree of possible moves
@@ -43,6 +45,7 @@ public class Game {
         for(int i=1; i<7;i++){
             if(i==1 || i==2){
                 if(i==1) {
+
                     wpieces[0].setLoc(0,4);
                     bpieces[0].setLoc(7,4);
                     gameBoard[0][4].setStatus(i);
@@ -85,6 +88,9 @@ public class Game {
 
 
         }
+    }
+    public Board[][] getBoard(){
+        return gameBoard;
     }
 
     public boolean isValid(int row, int col, Board curPiece){
@@ -160,6 +166,9 @@ public class Game {
         return false;
 
     }
+
+
+
     public char getColor(int row, int col){
         return gameBoard[row][col].getColor();
     }
@@ -183,7 +192,7 @@ public class Game {
 
 
     public int nextMove(Board g){
-        for(int var1=0; var1<0; var++){
+        for(int var1=0; var1<0; var1++){
             g.setStatus(var1);
 
 
@@ -210,6 +219,49 @@ public class Game {
 
         for(int i=0; i);
 
+    }
+
+    public void AssignTeam(){
+        int C1=0;
+        for(int i =0; i<8;i++){
+            for(int j =0; i<8;i++)
+            if(gameBoard[i][j].equals('W')){
+                player[C1]=Piece(i,j,'W',);
+                C1++;
+            }
+            else if(gameBoard[i][j].equals('B')){
+                ai[C1]=new Piece((i,j,'B',))
+                C1++;
+            }
+
+        }
+    }
+    //lets comp know which human pieces are able to capture on the next move
+    //returns which pieces could be affected as arr?
+    public Piece asDanger(){
+        int ini=0;
+        Piece dangerPiece[];
+        for(int i=0; i<16;i++){
+            switch(player[i].getType()){
+                case 1:
+                    //check all spaces where king can attack
+                    for(int x =0;x<3;x++){
+                        for(int y=0;y<3;y++){
+                            int check=player[x].getRow()-1;
+
+
+                            if((gameBoard[x][check]).equals('B')){
+                                dangerPiece[ini] = new Piece(x, );
+                                ini++;
+
+                            }
+                          }
+                        }
+            }
+
+
+
+        }
     }
 
 

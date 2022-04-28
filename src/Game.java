@@ -240,24 +240,28 @@ public class Game {
     //returns which pieces could be affected as arr?
     public Piece asDanger(){
         int ini=0;
-        Piece dangerPiece[];
+        Piece dangerPiece[]=new Piece[16];
         for(int i=0; i<16;i++){
             switch(player[i].getType()){
+
                 case 1:
                     //check all spaces where king can attack
                     for(int x =0;x<3;x++){
+                        int checkRow=player[x].getRow()-1;
                         for(int y=0;y<3;y++){
-                            int check=player[x].getRow()-1;
-
-
-                            if((gameBoard[x][check]).equals('B')){
-                                dangerPiece[ini] = new Piece(x, );
+                            int checkCol=player[y].getCol()-1;
+                            if((gameBoard[checkRow][checkCol]).equals('B')){
+                                dangerPiece[ini] = new Piece(x,y,'W',player[i].getType());
                                 ini++;
-
                             }
-                          }
                         }
+
+                    }
+                case 2:
+                    for(int x=0; x<)
+
             }
+
 
 
 

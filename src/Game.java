@@ -363,17 +363,77 @@ public class Game {
                                 }
                             }
                         }
-                        else if(pTypeCheck==3){
-                            for()
+                else if(pTypeCheck==3){
+                    //case for rook
+                    for(int y=player[i].getRow()+1; y<8;y++){
+                        if (gameBoard[player[i].getRow()][y].getColor()=='B'){
+                            dangerPiece[ini] = new Piece(x, player[i].getCol(), 'W', player[i].getType());
+                            ini++;
+                            break;
+                        }
+                        else if(gameBoard[player[i].getRow()][y].getColor()=='W'){
+                            break;
+                        }
+                    }
+                    for(int y=player[i].getRow()-1;y<=0;y--){
+                        if(gameBoard[player[i].getRow()][y].getColor()=='B'){
+                            dangerPiece[ini] = new Piece(y, player[i].getCol(), 'W', player[i].getType());
+                            ini++;
+                            break;
+                        }
+                        else if(gameBoard[player[i].getRow()][y].getColor()=='W'){
+                            break;
+                        }
+                    }
 
+                    for(int y=player[i].getCol()+1;y<8;y++){
+                        if(gameBoard[player[i].getRow()][y].getColor()=='B'){
+                            dangerPiece[ini] = new Piece(player[i].getRow(), y, 'W', player[i].getType());
+                            ini++;
+                            break;
+                        }
+                        else if(gameBoard[player[i].getRow()][y].getColor()=='W'){
+                            break;
+                        }
+                    }
+                    for(int y=player[i].getCol()-1;y>=0;y--){
+                        if(gameBoard[player[i].getRow()][y].getColor()=='B'){
+                            dangerPiece[ini] = new Piece(player[i].getRow(), y, 'W', player[i].getType());
+                            ini++;
+                            break;
+                        }
+                        else if(gameBoard[player[i].getRow()][y].getColor()=='W'){
+                            break;
                         }
 
 
                     }
 
                 }
+                else if(pTypeCheck==4)
+                //case for knight
+                {
+                    if(gameBoard[player[i].getRow()+2][player[i].getCol()+1].getColor()=='B'){
+                        dangerPiece[ini]= new Piece(player[i].getRow()+2,player[i].getCol()+1,'W',player[i].getType());
+                        ini++;
+                    }
+                    else if(gameBoard[player[i].getRow()+2][player[i].getCol()-1].getColor()=='B'){
+                        dangerPiece[ini]=new Piece(player[i].getRow()+2,player[i].getCol()-1,'W',player[i].getType());
+                        ini++;
+                    }
+                    else if(gameBoard[player[i].getRow()+1][player[i].getCol()+2].getColor()=='B'){
+                        dangerPiece[ini]= new Piece(player[i].getRow()+1,player[i].getCol()+2,'W',player[i].getType());
+                        ini++;
+                    }
 
-            }
+                }
+
+
+
+
+           }
+
+       }
 
 
 

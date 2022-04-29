@@ -242,30 +242,143 @@ public class Game {
         int ini=0;
         Piece dangerPiece[]=new Piece[16];
         for(int i=0; i<16;i++){
-            switch(player[i].getType()){
+            int pTypeCheck=player[i].getType()){
 
-                case 1:
+                if (pTypeCheck == 1) {
+
+
                     //check all spaces where king can attack
-                    for(int x =0;x<3;x++){
-                        int checkRow=player[x].getRow()-1;
-                        for(int y=0;y<3;y++){
-                            int checkCol=player[y].getCol()-1;
-                            if((gameBoard[checkRow][checkCol]).equals('B')){
-                                dangerPiece[ini] = new Piece(x,y,'W',player[i].getType());
+                    for (int x = 0; x < 3; x++) {
+                        int checkRow = player[x].getRow() - 1;
+                        for (int y = 0; y < 3; y++) {
+                            int checkCol = player[y].getCol() - 1;
+                            if ((gameBoard[checkRow][checkCol]).equals('B')) {
+                                dangerPiece[ini] = new Piece(x, y, 'W', player[i].getType());
                                 ini++;
                             }
                         }
 
                     }
-                case 2:
-                    for(int x=0; x<)
+                }
+                else if (pTypeCheck == 2) {
+
+                            for(int y=player[i].getRow()+1; y<8;y++){
+                                if (gameBoard[player[i].getRow()][y].getColor()=='B'){
+                                    dangerPiece[ini] = new Piece(x, player[i].getCol(), 'W', player[i].getType());
+                                    ini++;
+                                    break;
+                                }
+                                else if(gameBoard[player[i].getRow()][y].getColor()=='W'){
+                                    break;
+                                }
+                            }
+                            for(int y=player[i].getRow()-1;y<=0;y--){
+                                if(gameBoard[player[i].getRow()][y].getColor()=='B'){
+                                    dangerPiece[ini] = new Piece(y, player[i].getCol(), 'W', player[i].getType());
+                                    ini++;
+                                    break;
+                                }
+                                else if(gameBoard[player[i].getRow()][y].getColor()=='W'){
+                                    break;
+                                }
+                            }
+
+                            for(int y=player[i].getCol()+1;y<8;y++){
+                                if(gameBoard[player[i].getRow()][y].getColor()=='B'){
+                                    dangerPiece[ini] = new Piece(player[i].getRow(), y, 'W', player[i].getType());
+                                    ini++;
+                                    break;
+                                }
+                                else if(gameBoard[player[i].getRow()][y].getColor()=='W'){
+                                    break;
+                                }
+                            }
+                            for(int y=player[i].getCol()-1;y>=0;y--){
+                                if(gameBoard[player[i].getRow()][y].getColor()=='B'){
+                                    dangerPiece[ini] = new Piece(player[i].getRow(), y, 'W', player[i].getType());
+                                    ini++;
+                                    break;
+                                }
+                                else if(gameBoard[player[i].getRow()][y].getColor()=='W'){
+                                    break;
+                                }
+
+
+                            }
+
+                            for(int y=1;y<8;y++){
+                                //case for diag when moving up in towards the right corner of the board
+                                if(player[i].getRow()+y>7||player[i].getCol()>7){
+                                    break;
+                                }
+                                else if (gameBoard[player[i].getRow()+y][player[i].getCol()+y].getColor()=='B'){
+                                    dangerPiece[ini] = new Piece(player[i].getRow()+y, player[i].getCol()+y, 'W', player[i].getType());
+                                    ini++;
+                                    break;
+                                }
+                            }
+                            for(int y=1;y<8;y++) {
+                                if(player[i].getRow()+y>7||player[i].getCol()-y>0) {
+                                    break;
+                                }
+                                else if(gameBoard[player[i].getRow()+y][player[i].getCol()-y].getColor()=='B') {
+                                    dangerPiece[ini] = new Piece(player[i].getRow()+y, player[i].getCol()-y, 'W', player[i].getType());
+                                    ini++;
+                                    break;
+                                }
+
+                                else if(gameBoard[player[i].getRow()+y][player[i].getCol()-y].getColor()=='W') {
+                                    break;
+                                }
+
+                            }
+                            for(int y=1;y<8;y++){
+                                if(player[i].getRow()-y>7||player[i].getCol()+y>0) {
+                                    break;
+                                }
+                                else if(gameBoard[player[i].getRow()-y][player[i].getCol()+y].getColor()=='B') {
+                                    dangerPiece[ini] = new Piece(player[i].getRow()-y, player[i].getCol()+y, 'W', player[i].getType());
+                                    ini++;
+                                    break;
+
+                                }
+                                else if(gameBoard[player[i].getRow()-y][player[i].getCol()+y].getColor()=='W') {
+                                    break;
+                                }
+                           }
+
+                            for(int y=1;y<8;y++){
+                                if(player[i].getRow()-y>7||player[i].getCol()-y>0){
+                                    break;
+                                }
+                                else if(gameBoard[player[i].getRow()-y][player[i].getCol()-y].getColor()=='B'){
+                                    dangerPiece[ini] = new Piece(player[i].getRow()-y, player[i].getCol()+y, 'W', player[i].getType());
+                                    ini++;
+                                    break;
+
+
+                                }
+                                else if(gameBoard[player[i].getRow()-y][player[i].getCol()-y].getColor()=='W'){
+                                    break;
+                                }
+                            }
+                        }
+                        else if(pTypeCheck==3){
+                            for()
+
+                        }
+
+
+                    }
+
+                }
 
             }
 
 
 
 
-        }
+
     }
 
 

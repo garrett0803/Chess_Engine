@@ -2,17 +2,17 @@ public class Piece {
     private int row = 0;
     private int col = 0;
     private char color;
-    private String type;
+    private int type;
 
 
-    public Piece(int row, int col, char color, String type) {
+    public Piece(int row, int col, char color, int type) {
         this.row = row;
         this.col = col;
         this.color = color;
         this.type = type;
     }
 
-
+w
     public int getRow(){
         return row;
     }
@@ -23,7 +23,7 @@ public class Piece {
     public char getColor(){
         return color;
     }
-    public String getType(){
+    public int getType(){
         return type;
     }
 

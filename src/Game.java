@@ -5,7 +5,7 @@ public class Game {
 
     public Board[][] gameBoard;
     public Board[] wpieces=new Board[16];
-    public Piece[] player= new Piece[16]
+    public Piece[] player= new Piece[16];
     public Piece[] ai= new Piece[16];
     public Board[] bpieces=new Board[16];
 
@@ -45,7 +45,6 @@ public class Game {
         for(int i=1; i<7;i++){
             if(i==1 || i==2){
                 if(i==1) {
-
                     wpieces[0].setLoc(0,4);
                     bpieces[0].setLoc(7,4);
                     gameBoard[0][4].setStatus(i);
@@ -215,22 +214,22 @@ public class Game {
 
     }
     // we dont want to parse through entire tree again
-    public Node prunTree(Board gameBoard){
+    //public Node prunTree(Board gameBoard){
 
-        for(int i=0; i);
+        //for(int i=0; i);
 
-    }
+    //}
 
     public void AssignTeam(){
         int C1=0;
         for(int i =0; i<8;i++){
             for(int j =0; i<8;i++)
-            if(gameBoard[i][j].equals('W')){
-                player[C1]=Piece(i,j,'W',);
+            if(gameBoard[i][j].getColor()=='W'){
+                player[C1]= new Piece(i,j,'W',0);
                 C1++;
             }
             else if(gameBoard[i][j].equals('B')){
-                ai[C1]=new Piece((i,j,'B',))
+                ai[C1]=new Piece((i,j,'B',0));
                 C1++;
             }
 
@@ -242,7 +241,8 @@ public class Game {
         int ini=0;
         Piece dangerPiece[]=new Piece[16];
         for(int i=0; i<16;i++){
-            int pTypeCheck=player[i].getType()){
+
+            int pTypeCheck=player[i].getType();
 
                 if (pTypeCheck == 1) {
 
@@ -252,7 +252,7 @@ public class Game {
                         int checkRow = player[x].getRow() - 1;
                         for (int y = 0; y < 3; y++) {
                             int checkCol = player[y].getCol() - 1;
-                            if ((gameBoard[checkRow][checkCol]).equals('B')) {
+                            if ((gameBoard[checkRow][checkCol]).getColor()=='B') {
                                 dangerPiece[ini] = new Piece(x, y, 'W', player[i].getType());
                                 ini++;
                             }
@@ -264,7 +264,7 @@ public class Game {
 
                             for(int y=player[i].getRow()+1; y<8;y++){
                                 if (gameBoard[player[i].getRow()][y].getColor()=='B'){
-                                    dangerPiece[ini] = new Piece(x, player[i].getCol(), 'W', player[i].getType());
+                                    dangerPiece[ini] = new Piece(y, player[i].getCol(), 'W', player[i].getType());
                                     ini++;
                                     break;
                                 }
@@ -367,7 +367,7 @@ public class Game {
                     //case for rook
                     for(int y=player[i].getRow()+1; y<8;y++){
                         if (gameBoard[player[i].getRow()][y].getColor()=='B'){
-                            dangerPiece[ini] = new Piece(x, player[i].getCol(), 'W', player[i].getType());
+                            dangerPiece[ini] = new Piece(y, player[i].getCol(), 'W', player[i].getType());
                             ini++;
                             break;
                         }

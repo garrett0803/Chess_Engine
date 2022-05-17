@@ -12,7 +12,7 @@ public class Piece {
         this.type = type;
     }
 
-w
+
     public int getRow(){
         return row;
     }

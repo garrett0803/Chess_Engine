@@ -221,20 +221,7 @@ public class Game {
         }
     }
 
-    public boolean turnLoop(char playerColor, int checkPiece){
-        int lcheck=0;
-        while(lcheck!=1) {
-            Scanner myscanner = new Scanner(System.in);
-            System.out.println("type what piece you would like t0 move");
-            String movePiece = myscanner.nextLine();
-            System.out.println("what row would you like to move");
-            int moveRow = myscanner.nextInt();
-            System.out.println("what column would you like to move to?");
-            int moveCol = myscanner.nextInt();
-            if(isValid(moveRow,moveCol,checkPiece));
-        }
-        return
-    }
+
 
     //lets comp know which human pieces are able to capture on the next move
     //returns which pieces could be affected as arr?
@@ -413,7 +400,23 @@ public class Game {
 
     }
 
-    public int[][] getMove(){
+    public int[] getMove(char Color){
+        Scanner loopScanner= new Scanner(System.in);
+        int[] moveSelect;
+        moveSelect= new int[2];
+        if(Color == 'B'){
+            moveSelect[0]=1;
+
+        }
+        else{
+            moveSelect[0]=loopScanner.nextInt();
+            System.out.println("enter row ");
+            moveSelect[1]=loopScanner.nextInt();
+            System.out.println("enter col");
+
+
+        }
+        return moveSelect;
 
 
     }
@@ -436,6 +439,8 @@ public class Game {
 
         while (!g.checkMate(userRow,userCol)){
             g.printBoard();
+            
+
             if()
 
 

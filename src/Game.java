@@ -1,5 +1,9 @@
 import java.lang.Math;
 import java.util.Scanner;
+import java.awt.*;
+import java.awt.event.*;
+import javax.swing.*;
+
 
 public class Game {
 
@@ -36,6 +40,15 @@ public class Game {
             }
         }
     }
+
+    public void assemFrame(){
+        JFrame jfrm=new JFrame("Chess test");
+        jfrm.setLayout(new FlowLayout());
+        jfrm.setSize(1280,720);
+        
+
+    }
+
 
 
     public void assignLoc() {
@@ -403,16 +416,21 @@ public class Game {
     public int[] getMove(char Color){
         Scanner loopScanner= new Scanner(System.in);
         int[] moveSelect;
+
+
         moveSelect= new int[2];
         if(Color == 'B'){
             moveSelect[0]=1;
 
+
         }
         else{
+
             moveSelect[0]=loopScanner.nextInt();
             System.out.println("enter row ");
             moveSelect[1]=loopScanner.nextInt();
             System.out.println("enter col");
+
 
 
         }
@@ -426,6 +444,7 @@ public class Game {
 
     public static void main(String[] args){
         Game g=new Game();
+        int pieceChoice;
         Scanner myscanner=new Scanner(System.in);
         g.createBoard();
         g.assignLoc();
@@ -439,11 +458,13 @@ public class Game {
 
         while (!g.checkMate(userRow,userCol)){
             g.printBoard();
-            
+            System.out.println("what piece are you moving");
+            pieceChoice=s.nextInt();
+            userRow= getMove("w")[0];
+            userCol= getMove('W')[1];
+            if(g.isValid(userRow,userCol)){
 
-
-
-
+            }
 
 
 

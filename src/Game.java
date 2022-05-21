@@ -45,7 +45,7 @@ public class Game {
         JFrame jfrm=new JFrame("Chess test");
         jfrm.setLayout(new FlowLayout());
         jfrm.setSize(1280,720);
-        
+
 
     }
 

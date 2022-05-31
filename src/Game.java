@@ -34,62 +34,65 @@ public class Game {
         gameBoard = new Board[8][8];
         for (int i = 0; i < 8; i++) {
             for (int j = 0; j < 8; j++) {
-                Board b = new Board(i, j, 0, '-');
+                Board b = new Board(i, j, "-", '-');
                 gameBoard[i][j] = b;
 
             }
         }
     }
 
-    public void assemFrame(){
-        JFrame jfrm=new JFrame("Chess test");
-        jfrm.setLayout(new FlowLayout());
-        jfrm.setSize(1280,720);
 
-
-    }
 
 
 
     public void assignLoc() {
         int z = 0;
         int y = 2;
+        int tp=0;
         for (int i = 1; i < 7; i++) {
-            if (i == 1 || i == 2) {
-                if (i == 1) {
-                    wpieces[0].setLoc(0, 4);
-                    bpieces[0].setLoc(7, 4);
-                    gameBoard[0][4].setStatus(i);
+            
+            if (i == 1) {
+
+
+                    //wpieces[0].setLoc(0, 4);
+                    //bpieces[0].setLoc(7, 4);
+                    gameBoard[0][4].setStatus("Q");
                     gameBoard[0][4].setColor('W');
-                    gameBoard[7][4].setStatus(i);
+                    gameBoard[7][4].setStatus("Q");
                     gameBoard[7][4].setColor('B');
-                } else {
-                    wpieces[1].setLoc(0, 3);
-                    bpieces[1].setLoc(7, 3);
-                    gameBoard[0][3].setStatus(i);
-                    gameBoard[0][3].setColor('W');
-                    gameBoard[7][3].setStatus(i);
-                    gameBoard[7][3].setColor('B');
                 }
-            } else if (i == 6) {
+            else if(i==2) {
+                    //wpieces[1].setLoc(0, 3);
+                    //bpieces[1].setLoc(7, 3);
+                    gameBoard[0][3].setStatus("K");
+                    gameBoard[0][3].setColor('W');
+                    gameBoard[7][3].setStatus("K");
+                    gameBoard[7][3].setColor('B');
+            }
+             else if (i == 6) {
                 for (int j = 0; j < 8; j++) {
-                    gameBoard[1][j].setStatus(i);
+                    gameBoard[1][j].setStatus("P");
                     gameBoard[1][j].setColor('W');
-                    gameBoard[6][j].setStatus(i);
+                    gameBoard[6][j].setStatus("P");
                     gameBoard[6][j].setColor('B');
                 }
             } else {
 
-                gameBoard[0][y].setStatus(i);
+                String[] otherObj={"B", "N","R"};
+
+
+
+                gameBoard[0][y].setStatus(otherObj[tp]);
                 gameBoard[0][y].setColor('W');
-                gameBoard[7][y].setStatus(i);
+                gameBoard[7][y].setStatus(otherObj[tp]);
                 gameBoard[7][y].setColor('B');
-                gameBoard[0][y + i + z].setStatus(i);
+                gameBoard[0][y + i + z].setStatus(otherObj[tp]);
                 gameBoard[0][y + i + z].setColor('W');
-                gameBoard[7][y + i + z].setStatus(i);
+                gameBoard[7][y + i + z].setStatus(otherObj[tp]);
                 gameBoard[7][y + i + z].setColor('B');
                 z++;
                 y--;
+                tp++;
 
             }
 
@@ -109,28 +112,28 @@ public class Game {
             rowDif = row - curPiece.getRow();
             colDif = col - curPiece.getCol();
             switch (curPiece.getStatus()) {
-                case 1:
+                case "K":
                     if (Math.abs(rowDif) < 2 && Math.abs(colDif) < 2) {
                         return true;
                     } else {
                         return false;
                     }
 
-                case 2:
+                case "Q":
                     if (rowDif == 0 || colDif == 0 || (row != curPiece.getRow() && Math.abs(rowDif) == Math.abs(colDif))) {
                         return true;
                     } else {
                         return false;
                     }
 
-                case 3:
+                case "R":
                     if (row != curPiece.getRow() && Math.abs(rowDif) == Math.abs(colDif)) {
                         return true;
                     } else {
                         return false;
                     }
 
-                case 4:
+                case "N":
                     if (row != curPiece.getRow()) {
                         if (Math.abs(rowDif) == 2 && Math.abs(colDif) == 1) {
                             return true;
@@ -143,14 +146,14 @@ public class Game {
                         return false;
                     }
 
-                case 5:
+                case "B":
                     if (row == curPiece.getRow() || col == curPiece.getCol()) {
                         return true;
                     } else {
                         return false;
                     }
 
-                case 6:
+                case "P":
                     if (rowDif == 1 && colDif == 0) {
                         return true;
                     } else {
@@ -170,7 +173,7 @@ public class Game {
     }
 
     public boolean checkMate(int row, int col) {
-        if (isValid(row, col, gameBoard[row][col]) & (gameBoard[row][col].getStatus() == 1)) {
+        if (isValid(row, col, gameBoard[row][col]) & (gameBoard[row][col].getStatus() == "K")) {
             return true;
 
         }
@@ -187,13 +190,13 @@ public class Game {
      */
 
 
-    public int nextMove(Board g) {
+    /*public int nextMove(Board g) {
         for (int var1 = 0; var1 < 0; var1++) {
             g.setStatus(var1);
 
 
         }
-    }
+    }*/
 
     public void printBoard() {
         for (int a = 7; a >= 0; a--) {
@@ -227,7 +230,7 @@ public class Game {
                     player[C1] = new Piece(i, j, 'W', 0);
                     C1++;
                 } else if (gameBoard[i][j].equals('B')) {
-                    ai[C1] = new Piece((i, j, 'B', 0));
+                    ai[C1] = new Piece(i, j, 'B', 0);
                     C1++;
                 }
 
@@ -410,6 +413,7 @@ public class Game {
 
 
         }
+        return null;
 
     }
 
@@ -442,7 +446,7 @@ public class Game {
 
 
 
-    public static void main(String[] args){
+    /*public static void main(String[] args){
         Game g=new Game();
         int pieceChoice;
         Scanner myscanner=new Scanner(System.in);
@@ -476,7 +480,7 @@ public class Game {
 
 
 
-    }
+    }*/
 
     //wait till player first move then populate binary tree
 

@@ -3,10 +3,10 @@ public class Board {
 
   private int row=0;
   private int col=0;
-  private int status=0;
+  private String status="";
   private char color;
 
-  public Board(int row, int col, int status, char color){
+  public Board(int row, int col, String status, char color){
     this.row=row;
     this.col=col;
     this.status=status;
@@ -19,7 +19,7 @@ public class Board {
 
 
   }
-  public void setStatus(int status){
+  public void setStatus(String status){
     this.status=status;
   }
   public void setColor(char color){
@@ -33,7 +33,7 @@ public class Board {
     return col;
   }
 
-  public int getStatus(){
+  public String getStatus(){
     return status;
   }
   public char getColor(){

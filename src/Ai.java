@@ -1,7 +1,7 @@
 public class Ai {
     private Piece aiPiece;
     private Piece playerPiece;
-    public Board gBoard
+    public Board gBoard;
 
 
 
@@ -23,7 +23,7 @@ public class Ai {
     }
 
 
-    public void updatePos(Piece x, char play){
+    /*public void updatePos(Piece x, char play){
         if(play=='W'){
             playerPiece=x;
         }
@@ -38,6 +38,6 @@ public class Ai {
 
     int nextMove(){
 
-    }
+    }*/
 
 }

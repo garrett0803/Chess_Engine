@@ -50,7 +50,7 @@ public class Game {
         int y = 2;
         int tp=0;
         for (int i = 1; i < 7; i++) {
-            
+
             if (i == 1) {
 
 
@@ -103,6 +103,10 @@ public class Game {
     public Board[][] getBoard() {
         return gameBoard;
     }
+    public int[] allMoves(Board[][] gameBoard){
+
+    }
+
 
     public boolean isValid(int row, int col, Board curPiece) {
         int rowDif = 0;

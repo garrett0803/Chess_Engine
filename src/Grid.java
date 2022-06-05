@@ -13,6 +13,7 @@ public class Grid extends Frame implements ActionListener {
     public Grid(){
         gcheck=new Game();
         gboard=new Button[8][8];
+
         gcheck.createBoard();
         gcheck.assignLoc();
         board= gcheck.getBoard();
@@ -28,7 +29,12 @@ public class Grid extends Frame implements ActionListener {
 
                 message=board[i][j].getStatus();
 
-                add(new Button(""+message));
+
+                gboard[i][j]=new Button(""+ message);
+                add(gboard[i][j]);
+                gboard[i][j].addActionListener(this);
+
+
 
 
             }

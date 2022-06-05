@@ -103,9 +103,9 @@ public class Game {
     public Board[][] getBoard() {
         return gameBoard;
     }
-    public int[] allMoves(Board[][] gameBoard){
+    /*public int[] allMoves(Board[][] gameBoard){
 
-    }
+    }*/
 
 
     public boolean isValid(int row, int col, Board curPiece) {

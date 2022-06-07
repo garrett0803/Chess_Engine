@@ -56,14 +56,15 @@ public class Grid extends Frame implements ActionListener {
         for (int i = 0; i < 8; i++) {
             for (int j = 0; j < 8; j++) {
                 if (ae.getSource() == gboard[i][j]) {
-                    message = "you pressed" + gboard[i][j].getLabel();
+                    message = "you pressed " + gboard[i][j].getLabel();
+                    System.out.println(message);
                 }
             }
 
 
 
         }
-        
+
         repaint();
     }
 

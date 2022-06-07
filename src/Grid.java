@@ -2,6 +2,7 @@ import javax.accessibility.Accessible;
 import java.awt.*;
 import java.awt.event.*;
 import java.util.EventListener;
+import java.awt.Color;
 
 public class Grid extends Frame implements ActionListener {
     String message="";
@@ -26,11 +27,12 @@ public class Grid extends Frame implements ActionListener {
         setFont(new Font("SansSerif",Font.BOLD,24));
         for(int i=0;i<n;i++){
             for(int j=0;j<n;j++){
+                String msg="";
 
-                message=board[i][j].getStatus();
+                msg=board[i][j].getStatus();
 
 
-                gboard[i][j]=new Button(""+ message);
+                gboard[i][j]=new Button(""+ msg);
                 add(gboard[i][j]);
                 gboard[i][j].addActionListener(this);
 
@@ -50,14 +52,15 @@ public class Grid extends Frame implements ActionListener {
     }
 
     @Override
-    public void actionPerformed(ActionEvent ae){
-        String str = ae.getActionCommand();
-        if(str.equals("test")){
-            message="test was selected";
+    public void actionPerformed(ActionEvent ae) {
+        for (int i = 0; i < 8; i++) {
+            for (int j = 0; j < 8; j++) {
+                if (ae.getSource() == gboard[i][j]) {
+                    message = "you pressed" + gboard[i][j].getLabel();
+                }
+            }
         }
-
         repaint();
-
     }
 
     public void paint(Graphics g){

@@ -52,10 +52,16 @@ public class Grid extends Frame implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent ae){
         String str = ae.getActionCommand();
-        if(str.equals("test")){
+        if(str.equals(str)){
             message="test was selected";
-        }
+            System.out.println("test was successful");
 
+
+        }
+        else{
+            message="no action";
+            System.out.println("no action");
+        }
         repaint();
 
     }

@@ -58,6 +58,7 @@ public class Grid extends Frame implements ActionListener {
                 if (ae.getSource() == gboard[i][j]) {
                     message = "you pressed " + gboard[i][j].getLabel();
                     System.out.println(message);
+                    gboard[i][j].setBackground(Color.red);
                 }
             }
 

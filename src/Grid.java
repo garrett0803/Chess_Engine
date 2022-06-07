@@ -52,7 +52,6 @@ public class Grid extends Frame implements ActionListener {
     }
 
     @Override
-<<<<<<< HEAD
     public void actionPerformed(ActionEvent ae) {
         for (int i = 0; i < 8; i++) {
             for (int j = 0; j < 8; j++) {
@@ -60,20 +59,11 @@ public class Grid extends Frame implements ActionListener {
                     message = "you pressed" + gboard[i][j].getLabel();
                 }
             }
-=======
-    public void actionPerformed(ActionEvent ae){
-        String str = ae.getActionCommand();
-        if(str.equals(str)){
-            message="test was selected";
-            System.out.println("test was successful");
+
 
 
         }
-        else{
-            message="no action";
-            System.out.println("no action");
->>>>>>> e8fa3508e8d5d9a6512b9a984bb2efb1dc4d9122
-        }
+        
         repaint();
     }
 

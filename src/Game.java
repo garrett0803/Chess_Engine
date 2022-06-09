@@ -1,5 +1,7 @@
 import java.lang.Math;
+import java.util.ArrayList;
 import java.util.Scanner;
+import java.util.List;
 import org.javatuples.Pair;
 import java.awt.*;
 import java.awt.event.*;
@@ -195,9 +197,29 @@ public class Game {
      */
 
 
-    public int[][] allMoves(Board g) {
-        Pair<Integer,Integer> pair;
-        for (int var1 = 0; var1 < 0; var1++) {
+
+    public int maxNumMoves(String s){
+        switch (s){
+            case "P":
+                return 2;
+            case "R":
+            case "B":
+                return 16;
+            case "N":
+            case "K":
+                return 8;
+            case "Q":
+                return 32;
+        }
+        return 0;
+    }
+    public int[][] allMoves(int row,int col, Board[][] b) {
+        List<Integer>list=new ArrayList<Integer>();
+        int maxnum=maxNumMoves(b[row][col].getStatus());
+
+        int i=0;
+        while() {
+
 
 
 

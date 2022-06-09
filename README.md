@@ -1,1 +1,2 @@
-Chess Engine Powered by Java
+# Chess-Engine
+A chess engine powered by Java

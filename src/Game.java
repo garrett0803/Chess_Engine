@@ -1,5 +1,6 @@
 import java.lang.Math;
 import java.util.Scanner;
+import org.javatuples.Pair;
 import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
@@ -194,13 +195,14 @@ public class Game {
      */
 
 
-    /*public int nextMove(Board g) {
+    public int[][] allMoves(Board g) {
+        Pair<Integer,Integer> pair;
         for (int var1 = 0; var1 < 0; var1++) {
-            g.setStatus(var1);
+
 
 
         }
-    }*/
+    }
 
     public void printBoard() {
         for (int a = 7; a >= 0; a--) {

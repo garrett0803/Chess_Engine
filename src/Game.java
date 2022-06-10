@@ -214,11 +214,13 @@ public class Game {
         return 0;
     }
     public int[][] allMoves(int row,int col, Board[][] b) {
+        String tempPiece=b[row][col].getStatus();
         List<Integer>list=new ArrayList<Integer>();
         int maxnum=maxNumMoves(b[row][col].getStatus());
 
         int i=0;
-        while() {
+        for(int i=0;i<maxnum;i++){
+
 
 
 

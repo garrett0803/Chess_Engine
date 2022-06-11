@@ -2,7 +2,6 @@ import java.lang.Math;
 import java.util.ArrayList;
 import java.util.Scanner;
 import java.util.List;
-
 import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;

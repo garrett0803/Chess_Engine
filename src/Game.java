@@ -110,16 +110,18 @@ public class Game {
     }*/
 
 
-    public boolean isValid(int row, int col, Board[][] curPiece) {
+    public boolean isValid(int row, int col, Board curPiece) {
         int rowDif = 0;
         int colDif = 0;
 
+
         if ((row < 8 && row >= 0) && (col < 8) && (col < 8 && col >= 0)) {
-            rowDif = row - curPiece[][].getRow();
+            rowDif = row - curPiece.getRow();
             colDif = col - curPiece.getCol();
             switch (curPiece.getStatus()) {
                 case "K":
                     if (Math.abs(rowDif) < 2 && Math.abs(colDif) < 2) {
+
                         return true;
                     } else {
                         return false;
@@ -212,7 +214,7 @@ public class Game {
         }
         return 0;
     }
-    public List allMoves(int row, int col,Board[][] b) {
+    public List allMoves(int row, int col, Board[][] b) {
 
         List<Integer>list=new ArrayList<Integer>();
 
@@ -221,11 +223,13 @@ public class Game {
         for(int i=0;i<8;i++){
             for(int j=0;j<8;j++) {
 
-                if (isValid(i, j,b[][])) {
-                    if(b[i][j].getStatus().equals("-"))
-                    System.out.println(i);
-                    list.add(i);
-                    list.add(j);
+                if (isValid(i, j, b[row][col])){
+                    if(b[i][j].getStatus().equals("-")||b[i][j].getColor().equals("B")){
+                        list.add(i);
+                        list.add(j);
+
+                    }
+
 
                 }
 
@@ -456,7 +460,7 @@ public class Game {
 
     }
 
-    public int[] getMove(char Color){
+    public int[] getMove(String Color){
         Scanner loopScanner= new Scanner(System.in);
         int[] moveSelect;
 

@@ -64,7 +64,7 @@ public class Grid extends Frame implements ActionListener {
                     message = "you pressed " + gboard[i][j].getLabel();
                     System.out.println(message);
                     List<Integer>list=new ArrayList<Integer>();
-                    list=gcheck.allMoves(i,j, board[i][j]);
+                    list=gcheck.allMoves(i,j, board);
                     int size=list.size();
                     for(int a=0;a<size;a++){
                         rowCheck=list.get(a);

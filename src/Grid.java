@@ -1,6 +1,9 @@
 import javax.accessibility.Accessible;
 import java.awt.*;
 import java.awt.event.*;
+import java.util.ArrayList;
+import java.util.List;
+
 import java.util.EventListener;
 import java.awt.Color;
 
@@ -53,11 +56,24 @@ public class Grid extends Frame implements ActionListener {
 
     @Override
     public void actionPerformed(ActionEvent ae) {
+        int rowCheck,colCheck;
         for (int i = 0; i < 8; i++) {
             for (int j = 0; j < 8; j++) {
                 if (ae.getSource() == gboard[i][j]) {
+
                     message = "you pressed " + gboard[i][j].getLabel();
                     System.out.println(message);
+                    List<Integer>list=new ArrayList<Integer>();
+                    list=gcheck.allMoves(i,j, board[i][j]);
+                    int size=list.size();
+                    for(int a=0;a<size;a++){
+                        rowCheck=list.get(a);
+                        a++;
+                        colCheck=list.get(a);
+                        gboard[rowCheck][colCheck].setBackground(Color.green);
+
+                    }
+
                     gboard[i][j].setBackground(Color.red);
                 }
             }

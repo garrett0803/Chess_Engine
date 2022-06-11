@@ -2,7 +2,7 @@ import java.lang.Math;
 import java.util.ArrayList;
 import java.util.Scanner;
 import java.util.List;
-import org.javatuples.Pair;
+
 import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
@@ -213,18 +213,25 @@ public class Game {
         }
         return 0;
     }
-    public List allMoves(int row, int col, Board[][] b) {
-        String tempPiece=b[row][col].getStatus();
-        List<Integer>list=new ArrayList<Integer>();
-        int maxnum=maxNumMoves(b[row][col].getStatus());
+    public List allMoves(int row, int col,Board b) {
 
-        int i=0;
-        for(int i=0;i<maxnum;i++){
+        List<Integer>list=new ArrayList<Integer>();
+
+
+
+        for(int i=0;i<64;i++){
+
+            if(isValid(row,col,b)){
+                System.out.println(i);
+                list.add(row);
+                list.add(col);
+
+            }
 
 
         }
         return list;
-        //patrick test
+
     }
 
     public void printBoard() {

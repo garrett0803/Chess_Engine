@@ -133,7 +133,7 @@ public class Game {
                         return false;
                     }
 
-                case "R":
+                case "B":
                     if (row != curPiece.getRow() && Math.abs(rowDif) == Math.abs(colDif)) {
                         return true;
                     } else {
@@ -153,7 +153,7 @@ public class Game {
                         return false;
                     }
 
-                case "B":
+                case "R":
                     if (row == curPiece.getRow() || col == curPiece.getCol()) {
                         return true;
                     } else {
@@ -213,7 +213,7 @@ public class Game {
         }
         return 0;
     }
-    public List allMoves(int row, int col,Board b) {
+    public List allMoves(int row, int col,Board[][] b) {
 
         List<Integer>list=new ArrayList<Integer>();
 
@@ -222,7 +222,8 @@ public class Game {
         for(int i=0;i<8;i++){
             for(int j=0;j<8;j++) {
 
-                if (isValid(i, j, b)) {
+                if (isValid(i, j,b[][])) {
+                    if(b[i][j].getStatus().equals("-"))
                     System.out.println(i);
                     list.add(i);
                     list.add(j);

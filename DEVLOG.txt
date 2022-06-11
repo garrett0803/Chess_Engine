@@ -12,3 +12,6 @@ June 7th 2022
 
 June 9th 2022
 	Added event listeners to button presses. Now the program can identify which button is pressed and preform a arbitraury action. Plan moving forward is to call a function allMoves or something that return location of moves available and changes those buttons to green. A press of the highlighted buttons will then "move" the piece and update the buttons to the new location. Looking forward one problem i suspect will be the capture of pieces . It might not be to hard has i can change the string to "-" instead of the the piece, but i do need to find a way to differentiate the color of the pieces. its not neccasry to do this with in  the grid class since it is calling from the game class, which already had indentifiers for player color
+
+June 10th 2022
+	Added the start of showing next moves for a given piece. My logic for pawn movement is currently flawed. The system cannot differeniate between White or Black player. So white player ends up moving backwards instead of forwards. Same player collison is not implemented yet. I need to give conditons for when a piece that belongs to you is occupying that space.

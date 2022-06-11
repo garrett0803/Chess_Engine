@@ -219,17 +219,20 @@ public class Game {
 
 
 
-        for(int i=0;i<64;i++){
+        for(int i=0;i<8;i++){
+            for(int j=0;j<8;j++) {
 
-            if(isValid(row,col,b)){
-                System.out.println(i);
-                list.add(row);
-                list.add(col);
+                if (isValid(i, j, b)) {
+                    System.out.println(i);
+                    list.add(i);
+                    list.add(j);
+
+                }
+
 
             }
-
-
         }
+        System.out.println(list);
         return list;
 
     }

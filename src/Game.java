@@ -224,6 +224,7 @@ public class Game {
 
         }
         return list;
+        //patrick test
     }
 
     public void printBoard() {

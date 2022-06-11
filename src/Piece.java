@@ -1,11 +1,11 @@
 public class Piece {
     private int row = 0;
     private int col = 0;
-    private char color;
+    private String color="";
     private int type;
 
 
-    public Piece(int row, int col, char color, int type) {
+    public Piece(int row, int col, String color, int type) {
         this.row = row;
         this.col = col;
         this.color = color;
@@ -20,7 +20,7 @@ public class Piece {
         return col;
     }
 
-    public char getColor(){
+    public String getColor(){
         return color;
     }
     public int getType(){

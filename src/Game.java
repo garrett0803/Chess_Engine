@@ -36,7 +36,7 @@ public class Game {
         gameBoard = new Board[8][8];
         for (int i = 0; i < 8; i++) {
             for (int j = 0; j < 8; j++) {
-                Board b = new Board(i, j, "-", '-');
+                Board b = new Board(i, j, "-", "-");
                 gameBoard[i][j] = b;
 
             }
@@ -59,24 +59,24 @@ public class Game {
                     //wpieces[0].setLoc(0, 4);
                     //bpieces[0].setLoc(7, 4);
                     gameBoard[0][4].setStatus("Q");
-                    gameBoard[0][4].setColor('W');
+                    gameBoard[0][4].setColor("W");
                     gameBoard[7][4].setStatus("Q");
-                    gameBoard[7][4].setColor('B');
+                    gameBoard[7][4].setColor("B");
                 }
             else if(i==2) {
                     //wpieces[1].setLoc(0, 3);
                     //bpieces[1].setLoc(7, 3);
                     gameBoard[0][3].setStatus("K");
-                    gameBoard[0][3].setColor('W');
+                    gameBoard[0][3].setColor("W");
                     gameBoard[7][3].setStatus("K");
-                    gameBoard[7][3].setColor('B');
+                    gameBoard[7][3].setColor("B");
             }
              else if (i == 6) {
                 for (int j = 0; j < 8; j++) {
                     gameBoard[1][j].setStatus("P");
-                    gameBoard[1][j].setColor('W');
+                    gameBoard[1][j].setColor("W");
                     gameBoard[6][j].setStatus("P");
-                    gameBoard[6][j].setColor('B');
+                    gameBoard[6][j].setColor("B");
                 }
             } else {
 
@@ -85,13 +85,13 @@ public class Game {
 
 
                 gameBoard[0][y].setStatus(otherObj[tp]);
-                gameBoard[0][y].setColor('W');
+                gameBoard[0][y].setColor("W");
                 gameBoard[7][y].setStatus(otherObj[tp]);
-                gameBoard[7][y].setColor('B');
+                gameBoard[7][y].setColor("B");
                 gameBoard[0][y + i + z].setStatus(otherObj[tp]);
-                gameBoard[0][y + i + z].setColor('W');
+                gameBoard[0][y + i + z].setColor("W");
                 gameBoard[7][y + i + z].setStatus(otherObj[tp]);
-                gameBoard[7][y + i + z].setColor('B');
+                gameBoard[7][y + i + z].setColor("B");
                 z++;
                 y--;
                 tp++;
@@ -110,12 +110,12 @@ public class Game {
     }*/
 
 
-    public boolean isValid(int row, int col, Board curPiece) {
+    public boolean isValid(int row, int col, Board[][] curPiece) {
         int rowDif = 0;
         int colDif = 0;
 
         if ((row < 8 && row >= 0) && (col < 8) && (col < 8 && col >= 0)) {
-            rowDif = row - curPiece.getRow();
+            rowDif = row - curPiece[][].getRow();
             colDif = col - curPiece.getCol();
             switch (curPiece.getStatus()) {
                 case "K":
@@ -174,7 +174,7 @@ public class Game {
     }
 
 
-    public char getColor(int row, int col) {
+    public String getColor(int row, int col) {
         return gameBoard[row][col].getColor();
     }
 
@@ -265,11 +265,11 @@ public class Game {
         int C1 = 0;
         for (int i = 0; i < 8; i++) {
             for (int j = 0; i < 8; i++)
-                if (gameBoard[i][j].getColor() == 'W') {
-                    player[C1] = new Piece(i, j, 'W', 0);
+                if (gameBoard[i][j].getColor() == "W") {
+                    player[C1] = new Piece(i, j, "W", 0);
                     C1++;
-                } else if (gameBoard[i][j].equals('B')) {
-                    ai[C1] = new Piece(i, j, 'B', 0);
+                } else if (gameBoard[i][j].equals("B")) {
+                    ai[C1] = new Piece(i, j, "B", 0);
                     C1++;
                 }
 
@@ -295,8 +295,8 @@ public class Game {
                     int checkRow = player[x].getRow() - 1;
                     for (int y = 0; y < 3; y++) {
                         int checkCol = player[y].getCol() - 1;
-                        if ((gameBoard[checkRow][checkCol]).getColor() == 'B') {
-                            dangerPiece[ini] = new Piece(x, y, 'W', player[i].getType());
+                        if ((gameBoard[checkRow][checkCol]).getColor() == "B") {
+                            dangerPiece[ini] = new Piece(x, y, "W", player[i].getType());
                             ini++;
                         }
                     }
@@ -305,39 +305,39 @@ public class Game {
             } else if (pTypeCheck == 2) {
 
                 for (int y = player[i].getRow() + 1; y < 8; y++) {
-                    if (gameBoard[player[i].getRow()][y].getColor() == 'B') {
-                        dangerPiece[ini] = new Piece(y, player[i].getCol(), 'W', player[i].getType());
+                    if (gameBoard[player[i].getRow()][y].getColor() == "B") {
+                        dangerPiece[ini] = new Piece(y, player[i].getCol(), "W", player[i].getType());
                         ini++;
                         break;
-                    } else if (gameBoard[player[i].getRow()][y].getColor() == 'W') {
+                    } else if (gameBoard[player[i].getRow()][y].getColor() == "W") {
                         break;
                     }
                 }
                 for (int y = player[i].getRow() - 1; y <= 0; y--) {
-                    if (gameBoard[player[i].getRow()][y].getColor() == 'B') {
-                        dangerPiece[ini] = new Piece(y, player[i].getCol(), 'W', player[i].getType());
+                    if (gameBoard[player[i].getRow()][y].getColor() == "B") {
+                        dangerPiece[ini] = new Piece(y, player[i].getCol(), "W", player[i].getType());
                         ini++;
                         break;
-                    } else if (gameBoard[player[i].getRow()][y].getColor() == 'W') {
+                    } else if (gameBoard[player[i].getRow()][y].getColor() == "W") {
                         break;
                     }
                 }
 
                 for (int y = player[i].getCol() + 1; y < 8; y++) {
-                    if (gameBoard[player[i].getRow()][y].getColor() == 'B') {
-                        dangerPiece[ini] = new Piece(player[i].getRow(), y, 'W', player[i].getType());
+                    if (gameBoard[player[i].getRow()][y].getColor() == "B") {
+                        dangerPiece[ini] = new Piece(player[i].getRow(), y, "W", player[i].getType());
                         ini++;
                         break;
-                    } else if (gameBoard[player[i].getRow()][y].getColor() == 'W') {
+                    } else if (gameBoard[player[i].getRow()][y].getColor() == "W") {
                         break;
                     }
                 }
                 for (int y = player[i].getCol() - 1; y >= 0; y--) {
-                    if (gameBoard[player[i].getRow()][y].getColor() == 'B') {
-                        dangerPiece[ini] = new Piece(player[i].getRow(), y, 'W', player[i].getType());
+                    if (gameBoard[player[i].getRow()][y].getColor() == "B") {
+                        dangerPiece[ini] = new Piece(player[i].getRow(), y, "W", player[i].getType());
                         ini++;
                         break;
-                    } else if (gameBoard[player[i].getRow()][y].getColor() == 'W') {
+                    } else if (gameBoard[player[i].getRow()][y].getColor() == "W") {
                         break;
                     }
 
@@ -348,8 +348,8 @@ public class Game {
                     //case for diag when moving up in towards the right corner of the board
                     if (player[i].getRow() + y > 7 || player[i].getCol() > 7) {
                         break;
-                    } else if (gameBoard[player[i].getRow() + y][player[i].getCol() + y].getColor() == 'B') {
-                        dangerPiece[ini] = new Piece(player[i].getRow() + y, player[i].getCol() + y, 'W', player[i].getType());
+                    } else if (gameBoard[player[i].getRow() + y][player[i].getCol() + y].getColor() == "B") {
+                        dangerPiece[ini] = new Piece(player[i].getRow() + y, player[i].getCol() + y, "W", player[i].getType());
                         ini++;
                         break;
                     }
@@ -357,11 +357,11 @@ public class Game {
                 for (int y = 1; y < 8; y++) {
                     if (player[i].getRow() + y > 7 || player[i].getCol() - y > 0) {
                         break;
-                    } else if (gameBoard[player[i].getRow() + y][player[i].getCol() - y].getColor() == 'B') {
-                        dangerPiece[ini] = new Piece(player[i].getRow() + y, player[i].getCol() - y, 'W', player[i].getType());
+                    } else if (gameBoard[player[i].getRow() + y][player[i].getCol() - y].getColor() == "B") {
+                        dangerPiece[ini] = new Piece(player[i].getRow() + y, player[i].getCol() - y, "W", player[i].getType());
                         ini++;
                         break;
-                    } else if (gameBoard[player[i].getRow() + y][player[i].getCol() - y].getColor() == 'W') {
+                    } else if (gameBoard[player[i].getRow() + y][player[i].getCol() - y].getColor() == "W") {
                         break;
                     }
 
@@ -369,12 +369,12 @@ public class Game {
                 for (int y = 1; y < 8; y++) {
                     if (player[i].getRow() - y > 7 || player[i].getCol() + y > 0) {
                         break;
-                    } else if (gameBoard[player[i].getRow() - y][player[i].getCol() + y].getColor() == 'B') {
-                        dangerPiece[ini] = new Piece(player[i].getRow() - y, player[i].getCol() + y, 'W', player[i].getType());
+                    } else if (gameBoard[player[i].getRow() - y][player[i].getCol() + y].getColor() == "B") {
+                        dangerPiece[ini] = new Piece(player[i].getRow() - y, player[i].getCol() + y, "W", player[i].getType());
                         ini++;
                         break;
 
-                    } else if (gameBoard[player[i].getRow() - y][player[i].getCol() + y].getColor() == 'W') {
+                    } else if (gameBoard[player[i].getRow() - y][player[i].getCol() + y].getColor() == "W") {
                         break;
                     }
                 }
@@ -382,52 +382,52 @@ public class Game {
                 for (int y = 1; y < 8; y++) {
                     if (player[i].getRow() - y > 7 || player[i].getCol() - y > 0) {
                         break;
-                    } else if (gameBoard[player[i].getRow() - y][player[i].getCol() - y].getColor() == 'B') {
-                        dangerPiece[ini] = new Piece(player[i].getRow() - y, player[i].getCol() + y, 'W', player[i].getType());
+                    } else if (gameBoard[player[i].getRow() - y][player[i].getCol() - y].getColor() == "B") {
+                        dangerPiece[ini] = new Piece(player[i].getRow() - y, player[i].getCol() + y, "W", player[i].getType());
                         ini++;
                         break;
 
 
-                    } else if (gameBoard[player[i].getRow() - y][player[i].getCol() - y].getColor() == 'W') {
+                    } else if (gameBoard[player[i].getRow() - y][player[i].getCol() - y].getColor() == "W") {
                         break;
                     }
                 }
             } else if (pTypeCheck == 3) {
                 //case for rook
                 for (int y = player[i].getRow() + 1; y < 8; y++) {
-                    if (gameBoard[player[i].getRow()][y].getColor() == 'B') {
-                        dangerPiece[ini] = new Piece(y, player[i].getCol(), 'W', player[i].getType());
+                    if (gameBoard[player[i].getRow()][y].getColor() == "B") {
+                        dangerPiece[ini] = new Piece(y, player[i].getCol(), "W", player[i].getType());
                         ini++;
                         break;
-                    } else if (gameBoard[player[i].getRow()][y].getColor() == 'W') {
+                    } else if (gameBoard[player[i].getRow()][y].getColor() == "W") {
                         break;
                     }
                 }
                 for (int y = player[i].getRow() - 1; y <= 0; y--) {
-                    if (gameBoard[player[i].getRow()][y].getColor() == 'B') {
-                        dangerPiece[ini] = new Piece(y, player[i].getCol(), 'W', player[i].getType());
+                    if (gameBoard[player[i].getRow()][y].getColor() == "B") {
+                        dangerPiece[ini] = new Piece(y, player[i].getCol(), "W", player[i].getType());
                         ini++;
                         break;
-                    } else if (gameBoard[player[i].getRow()][y].getColor() == 'W') {
+                    } else if (gameBoard[player[i].getRow()][y].getColor() == "W") {
                         break;
                     }
                 }
 
                 for (int y = player[i].getCol() + 1; y < 8; y++) {
-                    if (gameBoard[player[i].getRow()][y].getColor() == 'B') {
-                        dangerPiece[ini] = new Piece(player[i].getRow(), y, 'W', player[i].getType());
+                    if (gameBoard[player[i].getRow()][y].getColor() == "B") {
+                        dangerPiece[ini] = new Piece(player[i].getRow(), y, "W", player[i].getType());
                         ini++;
                         break;
-                    } else if (gameBoard[player[i].getRow()][y].getColor() == 'W') {
+                    } else if (gameBoard[player[i].getRow()][y].getColor() == "W") {
                         break;
                     }
                 }
                 for (int y = player[i].getCol() - 1; y >= 0; y--) {
-                    if (gameBoard[player[i].getRow()][y].getColor() == 'B') {
-                        dangerPiece[ini] = new Piece(player[i].getRow(), y, 'W', player[i].getType());
+                    if (gameBoard[player[i].getRow()][y].getColor() == "B") {
+                        dangerPiece[ini] = new Piece(player[i].getRow(), y, "W", player[i].getType());
                         ini++;
                         break;
-                    } else if (gameBoard[player[i].getRow()][y].getColor() == 'W') {
+                    } else if (gameBoard[player[i].getRow()][y].getColor() == "W") {
                         break;
                     }
 
@@ -437,14 +437,14 @@ public class Game {
             } else if (pTypeCheck == 4)
             //case for knight
             {
-                if (gameBoard[player[i].getRow() + 2][player[i].getCol() + 1].getColor() == 'B') {
-                    dangerPiece[ini] = new Piece(player[i].getRow() + 2, player[i].getCol() + 1, 'W', player[i].getType());
+                if (gameBoard[player[i].getRow() + 2][player[i].getCol() + 1].getColor() == "B") {
+                    dangerPiece[ini] = new Piece(player[i].getRow() + 2, player[i].getCol() + 1, "W", player[i].getType());
                     ini++;
-                } else if (gameBoard[player[i].getRow() + 2][player[i].getCol() - 1].getColor() == 'B') {
-                    dangerPiece[ini] = new Piece(player[i].getRow() + 2, player[i].getCol() - 1, 'W', player[i].getType());
+                } else if (gameBoard[player[i].getRow() + 2][player[i].getCol() - 1].getColor() == "B") {
+                    dangerPiece[ini] = new Piece(player[i].getRow() + 2, player[i].getCol() - 1, "W", player[i].getType());
                     ini++;
-                } else if (gameBoard[player[i].getRow() + 1][player[i].getCol() + 2].getColor() == 'B') {
-                    dangerPiece[ini] = new Piece(player[i].getRow() + 1, player[i].getCol() + 2, 'W', player[i].getType());
+                } else if (gameBoard[player[i].getRow() + 1][player[i].getCol() + 2].getColor() == "B") {
+                    dangerPiece[ini] = new Piece(player[i].getRow() + 1, player[i].getCol() + 2, "W", player[i].getType());
                     ini++;
                 }
 
@@ -462,7 +462,7 @@ public class Game {
 
 
         moveSelect= new int[2];
-        if(Color == 'B'){
+        if(Color == "B"){
             moveSelect[0]=1;
 
 
@@ -493,7 +493,7 @@ public class Game {
         g.assignLoc();
         g.printBoard();
         int userRow, userCol;
-        char userColor='W';
+        char userColor="W";
         Scanner s=new Scanner(System.in);
         userRow= s.nextInt();
         userCol=s.nextInt();
@@ -504,7 +504,7 @@ public class Game {
             System.out.println("what piece are you moving");
             pieceChoice=s.nextInt();
             userRow= getMove("w")[0];
-            userCol= getMove('W')[1];
+            userCol= getMove("W")[1];
             if(g.isValid(userRow,userCol)){
 
             }

@@ -229,6 +229,9 @@ public class Game {
                         list.add(j);
 
                     }
+                    else{
+                        return list;
+                    }
 
 
                 }

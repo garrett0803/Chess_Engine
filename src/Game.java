@@ -217,11 +217,32 @@ public class Game {
     public List allMoves(int row, int col, Board[][] b) {
 
         List<Integer>list=new ArrayList<Integer>();
+        String pType=b[row][col].getStatus();
 
 
 
         for(int i=0;i<8;i++){
             for(int j=0;j<8;j++) {
+                switch (pType){
+                    case "P":
+                        if(b[i][j].getColor().equals(b[row][col].getColor()))if(b[i][j].getColor().equals(b[row][col].getColor())){
+                            return list;
+                        }
+                        break;
+
+
+                    case "B":
+                        if(b[i][j].getColor().equals(b[row][col].getColor()){
+
+                    }
+
+                    case "N":
+
+                    case "K":
+
+                    case "Q":
+
+                }
 
                 if (isValid(i, j, b[row][col])){
                     if(b[i][j].getStatus().equals("-")||b[i][j].getColor().equals("B")){
@@ -241,6 +262,9 @@ public class Game {
         }
         System.out.println(list);
         return list;
+
+    }
+    public int collisonHandler(Board b){
 
     }
 

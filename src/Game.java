@@ -227,20 +227,24 @@ public class Game {
                     case "P":
                         if(b[i][j].getColor().equals(b[row][col].getColor()))if(b[i][j].getColor().equals(b[row][col].getColor())){
                             return list;
+
                         }
                         break;
 
 
                     case "B":
-                        if(b[i][j].getColor().equals(b[row][col].getColor()){
+                        if(b[i][j].getColor().equals(b[row][col].getColor())) {
+                            int rowDelta=row-i;
+                            int colDelta=col-j;
+                            return list;
+                         }
 
-                    }
+                         break;
 
-                    case "N":
 
-                    case "K":
 
                     case "Q":
+                        if(b[i][j])
 
                 }
 
@@ -264,9 +268,11 @@ public class Game {
         return list;
 
     }
-    public int collisonHandler(Board b){
+    //public int collisonHandler(Board b){
 
-    }
+
+
+    //}
 
     public void printBoard() {
         for (int a = 7; a >= 0; a--) {
@@ -490,8 +496,6 @@ public class Game {
     public int[] getMove(String Color){
         Scanner loopScanner= new Scanner(System.in);
         int[] moveSelect;
-
-
         moveSelect= new int[2];
         if(Color == "B"){
             moveSelect[0]=1;

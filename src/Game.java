@@ -136,6 +136,7 @@ public class Game {
 
                 case "B":
                     if (row != curPiece.getRow() && Math.abs(rowDif) == Math.abs(colDif)) {
+
                         return true;
                     } else {
                         return false;
@@ -234,6 +235,9 @@ public class Game {
 
                     case "B":
                         if(b[i][j].getColor().equals(b[row][col].getColor())) {
+                            for(int trav=0;trav<4; trav++){
+
+                            }
                             int rowDelta=row-i;
                             int colDelta=col-j;
                             return list;
@@ -244,7 +248,7 @@ public class Game {
 
 
                     case "Q":
-                        if(b[i][j])
+                        break;
 
                 }
 

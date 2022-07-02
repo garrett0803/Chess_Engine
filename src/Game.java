@@ -200,21 +200,7 @@ public class Game {
 
 
 
-    public int maxNumMoves(String s){
-        switch (s){
-            case "P":
-                return 2;
-            case "R":
-            case "B":
-                return 16;
-            case "N":
-            case "K":
-                return 8;
-            case "Q":
-                return 32;
-        }
-        return 0;
-    }
+
     public List allMoves(int row, int col, Board[][] b) {
 
         List<Integer>list=new ArrayList<Integer>();
@@ -226,7 +212,7 @@ public class Game {
             for(int j=0;j<8;j++) {
                 switch (pType){
                     case "P":
-                        if(b[i][j].getColor().equals(b[row][col].getColor()))if(b[i][j].getColor().equals(b[row][col].getColor())){
+                        if(b[i][j].getColor().equals(b[row][col].getColor())){
                             return list;
 
                         }

@@ -108,7 +108,113 @@ public class Game {
     /*public int[] allMoves(Board[][] gameBoard){
 
     }*/
+    public List bishopMove(int row,int col, Board piece){
+        List<Integer>list=new ArrayList<Integer>();
+        for (int trav = 0; trav < 4; trav++) {
+            int rowV=0;
+            int colV=0;
+            //from whites perspective
+            //bishop moving northwest
 
+            if(trav==0) {
+                rowV=row+1;
+                colV=col-1;
+                while(isValid(rowV,colV,piece)){
+                    list.add(rowV);
+                    list.add(colV);
+                }
+
+
+            }
+            //bishop moving northeast
+            else if(trav==1) {
+                rowV=row+1;
+                colV=col+1;
+                while(isValid(rowV,colV,piece)){
+                    list.add(rowV);
+                    list.add(colV);
+                }
+
+
+            }
+            //bishop moving southeast
+            else if(trav==2){
+                rowV=row-1;
+                colV=col+1;
+                while(isValid(rowV,colV,piece)){
+                    list.add(rowV);
+                    list.add(colV);
+                }
+
+            }
+            //bishop moving southwest
+            else if(trav==3){
+                rowV=row-1;
+                colV=col-1;
+                while(isValid(rowV,colV,piece)){
+                    list.add(rowV);
+                    list.add(colV);
+                }
+
+            }
+
+        }
+
+    }
+
+    public List rookMove(int row, int col, Board piece){
+        List<Integer>list=new ArrayList<Integer>();
+        for (int trav = 0; trav < 4; trav++){
+            int rowV=0;
+            int colV=0;
+            //rook moving north
+            if(trav==0){
+                rowV=row+1;
+                colV=col;
+                while(isValid(rowV,colV,piece){
+                    list.add(rowV);
+                    list.add(colV);
+                    rowV++;
+                }
+
+            }
+            //rook moving east
+            else if(trav==1){
+                rowV=row;
+                colV=col+1;
+                while(isValid(rowV,colV,piece){
+                    list.add(rowV);
+                    list.add(colV);
+                    colV++;
+                }
+
+            }
+            //rook moving south
+            else if(trav==2){
+                rowV=row-1;
+                colV=col;
+                while(isValid(rowV,colV,piece){
+                    list.add(rowV);
+                    list.add(colV);
+                    rowV--;
+                }
+
+            }
+            //rook moving west
+            else if(trav==3){
+                rowV=row;
+                colV=col-1;
+                while(isValid(rowV,colV,piece){
+                    list.add(rowV);
+                    list.add(colV);
+                    colV--;
+                }
+
+            }
+
+        }
+
+    }
 
     public boolean isValid(int row, int col, Board curPiece) {
         int rowDif = 0;
@@ -205,55 +311,52 @@ public class Game {
 
         List<Integer>list=new ArrayList<Integer>();
         String pType=b[row][col].getStatus();
+        int rowDif = 0;
+        int colDif = 0;
 
 
 
-        for(int i=0;i<8;i++){
-            for(int j=0;j<8;j++) {
-                switch (pType){
-                    case "P":
-                        if(b[i][j].getColor().equals(b[row][col].getColor())){
-                            return list;
-
-                        }
-                        break;
-
-
-                    case "B":
-                        if(b[i][j].getColor().equals(b[row][col].getColor())) {
-                            for(int trav=0;trav<4; trav++){
-
-                            }
-                            int rowDelta=row-i;
-                            int colDelta=col-j;
-                            return list;
-                         }
-
-                         break;
-
-
-
-                    case "Q":
-                        break;
+       //sets movement patterns for pieces instead of checking whole board [i][j]
+        switch (pType) {
+            case "P":
+                if (b[i][j].getColor().equals(b[row][col].getColor())) {
+                    return list;
 
                 }
-
-                if (isValid(i, j, b[row][col])){
-                    if(b[i][j].getStatus().equals("-")||b[i][j].getColor().equals("B")){
-                        list.add(i);
-                        list.add(j);
-
-                    }
-                    else{
-                        return list;
-                    }
+                break;
 
 
-                }
+            case "B":
+                list=bishopMove(row,col);
 
+
+                return list;
+
+
+
+            case "Q":
+                break;
+
+        }
+
+
+
+        if (isValid(i, j, b[row][col])){
+            if(b[i][j].getStatus().equals("-")||b[i][j].getColor().equals("B")){
+                list.add(i);
+                list.add(j);
 
             }
+            else{
+                return list;
+            }
+
+
         }
+
+
+
+
         System.out.println(list);
         return list;
 

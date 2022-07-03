@@ -21,6 +21,16 @@ June 10th 2022
 
 June 11th 2022
 	
-	Having trouble finding a way to represent when a piece is blocking another pieces path. The problem lies with stopping subsequent checks after a piece is found to be in the way. Since all pieces have different movement patterns a one size fits all function won't work. Implement a switch statement that reacts to the piece that passed through? Maybe then it would have different return conditions for   example a piece is blocking a bishops path then it will stop looking for possible moves after that index. But what about moves that could be in the same column but another row?
+	Having trouble finding a way to represent when a piece is blocking another pieces path. The problem lies with
+	stopping subsequent checks after a piece is found to be in the way. Since all pieces have different movement
+	patterns a one size fits all function won't work. Implement a switch statement that reacts to the piece that passed
+	through? Maybe then it would have different return conditions for   example a piece is blocking a bishops path then
+	it will stop looking for possible moves after that index. But what about moves that could be in the same column but
+	another row?
 
 
+July 2nd 2022
+    After a long break im finally getting started on collison detection for the pieces. The way i ended up doing was by
+    creating move patterns for each class of piece (rook, bishop.. etc). Looping through the poosible movements add the
+    location if it was valid or moving to the next direction of movement if it was blocked. That way the debugger will
+    that a piece cannot move over another piece.

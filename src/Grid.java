@@ -92,7 +92,7 @@ public class Grid extends Frame implements ActionListener {
     public static void main(String[] args){
         Grid appwin=new Grid();
         appwin.setSize(new Dimension(1000,400));
-        appwin.setTitle("CHESSV0");
+        appwin.setTitle("DEBUG");
         appwin.setVisible(true);
     }
 }

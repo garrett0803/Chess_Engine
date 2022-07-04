@@ -159,6 +159,7 @@ public class Game {
             }
 
         }
+        return list;
 
     }
 
@@ -171,7 +172,7 @@ public class Game {
             if(trav==0){
                 rowV=row+1;
                 colV=col;
-                while(isValid(rowV,colV,piece){
+                while(isValid(rowV,colV,piece)){
                     list.add(rowV);
                     list.add(colV);
                     rowV++;
@@ -182,7 +183,7 @@ public class Game {
             else if(trav==1){
                 rowV=row;
                 colV=col+1;
-                while(isValid(rowV,colV,piece){
+                while(isValid(rowV,colV,piece)){
                     list.add(rowV);
                     list.add(colV);
                     colV++;
@@ -193,7 +194,7 @@ public class Game {
             else if(trav==2){
                 rowV=row-1;
                 colV=col;
-                while(isValid(rowV,colV,piece){
+                while(isValid(rowV,colV,piece)){
                     list.add(rowV);
                     list.add(colV);
                     rowV--;
@@ -204,7 +205,7 @@ public class Game {
             else if(trav==3){
                 rowV=row;
                 colV=col-1;
-                while(isValid(rowV,colV,piece){
+                while(isValid(rowV,colV,piece)){
                     list.add(rowV);
                     list.add(colV);
                     colV--;
@@ -213,8 +214,11 @@ public class Game {
             }
 
         }
+        return list;
 
     }
+
+
 
     public boolean isValid(int row, int col, Board curPiece) {
         int rowDif = 0;
@@ -307,7 +311,7 @@ public class Game {
 
 
 
-    public List allMoves(int row, int col, Board[][] b) {
+    public List allMoves(int row, int col,Board[][] b) {
 
         List<Integer>list=new ArrayList<Integer>();
         String pType=b[row][col].getStatus();
@@ -318,41 +322,29 @@ public class Game {
 
        //sets movement patterns for pieces instead of checking whole board [i][j]
         switch (pType) {
-            case "P":
-                if (b[i][j].getColor().equals(b[row][col].getColor())) {
-                    return list;
-
-                }
-                break;
-
 
             case "B":
-                list=bishopMove(row,col);
-
-
+                list=bishopMove(row,col,b[row][col]);
                 return list;
 
+
+
+            case "R":
+                list=rookMove(row,col,b[row][col]);
+                return list;
 
 
             case "Q":
-                break;
-
-        }
-
-
-
-        if (isValid(i, j, b[row][col])){
-            if(b[i][j].getStatus().equals("-")||b[i][j].getColor().equals("B")){
-                list.add(i);
-                list.add(j);
-
-            }
-            else{
+                list=bishopMove(row,col,b[row][col]);
+                list.addAll(rookMove(row,col,b[row][col]));
                 return list;
-            }
-
 
         }
+
+
+
+
+
 
 
 

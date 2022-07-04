@@ -1,23 +1,38 @@
-﻿January 11th 2022
-	
-	I coded more today as well. I'm starting to flesh out how the program will check each piece that is on the board. I'm using a class to hold the location of a cell and the status of the cell (if it has a piece in it and what piece that is). I'm doing this so the user can select a cell and the program will give the user valid moves they can make with that piece.  Along with the board structure I’m also working pieces unique movements. My plan now is to check the row and col its in and for example if its a bishop then it can move [current row+x] and [current col +x]. I can use unique algorithms find valid moves for each piece the player could want to move.
-
-
-May 21st 2022
+﻿May 21st 2022
 	 
-	Current system to select a piece from a user input is to complex. Having the user either input the cell (user row and column) for the piece they want to move, or select the piece they would like to move then have to discern which of the possibly 2 pieces are left on the. Not feasible for pawns. It would be better to implement a user click the would automatically store row and column as well as the piece that is occupying the cell to check if a piece is valid. Jframe introduces the possibly to create a matrix of buttons. For the this the pointer will have to be updated to the index of the board class. Would it be easier to create objects that change there location instead of clickable interfaces that update there containing objects.
+	Current system to select a piece from a user input is to complex. Having the user either input the cell
+	(user row and column) for the piece they want to move, or select the piece they would like to move then have to
+	discern which of the possibly 2 pieces are left on the. Not feasible for pawns. It would be better to implement a
+	user click the would automatically store row and column as well as the piece that is occupying the cell to check if
+	a piece is valid. Jframe introduces the possibly to create a matrix of buttons. For the this the pointer will have
+	 to be updated to the index of the board class. Would it be easier to create objects that change there location
+	 instead of clickable interfaces that update there containing objects.
 
 June 7th 2022
 
-	Grid of buttons to represent a chess board is working to the point where all buttons are displayed with there corresponding piece. Although I'm having trouble implementing action commands for the buttons. I can return the string that is present on the button when clicked,  but i need to return the actual button its self to find possible moves it can make. Since each string is not independent there is at least one identical string representing each piece(black and white). The next option is to set action commands for each button maybe equal to the array location? Not sure will have to test it further. But they need to be strings and not abstract classes.
+	Grid of buttons to represent a chess board is working to the point where all buttons are displayed with there
+	corresponding piece. Although I'm having trouble implementing action commands for the buttons. I can return the
+	string that is present on the button when clicked,  but i need to return the actual button its self to find possible
+	 moves it can make. Since each string is not independent there is at least one identical string representing each
+	 piece(black and white). The next option is to set action commands for each button maybe equal to the array
+	 location? Not sure will have to test it further. But they need to be strings and not abstract classes.
 
 June 9th 2022
 
-	Added event listeners to button presses. Now the program can identify which button is pressed and preform a arbitrary action. Plan moving forward is to call a function allMoves or something that return location of moves available and changes those buttons to green. A press of the highlighted buttons will then "move" the piece and update the buttons to the new location. Looking forward one problem i suspect will be the capture of pieces . It might not be to hard has i can change the string to "-" instead of the the piece, but i do need to find a way to differentiate the color of the pieces. its not necessary to do this with in  the grid class since it is calling from the game class, which already had identifiers for player color.
+	Added event listeners to button presses. Now the program can identify which button is pressed and preform a
+	arbitrary action. Plan moving forward is to call a function allMoves or something that return location of moves
+	available and changes those buttons to green. A press of the highlighted buttons will then "move" the piece and
+	update the buttons to the new location. Looking forward one problem i suspect will be the capture of pieces .
+	It might not be to hard has i can change the string to "-" instead of the the piece, but i do need to find a way to
+	differentiate the color of the pieces. its not necessary to do this with in  the grid class since it is calling from
+	 the game class, which already had identifiers for player color.
 
 June 10th 2022
 
-	Added the start of showing next moves for a given piece. My logic for pawn movement is currently flawed. The system cannot differentiate between White or Black player. So white player ends up moving backwards instead of forwards. Same player collision is not implemented yet. I need to give conditions for when a piece that belongs to you is occupying that space.
+	Added the start of showing next moves for a given piece. My logic for pawn movement is currently flawed. The system
+	cannot differentiate between White or Black player. So white player ends up moving backwards instead of forwards.
+	ame player collision is not implemented yet. I need to give conditions for when a piece that belongs to you is
+	occupying that space.
 
 June 11th 2022
 	

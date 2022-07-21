@@ -122,6 +122,8 @@ public class Game {
                 while(isValid(rowV,colV,piece)){
                     list.add(rowV);
                     list.add(colV);
+                    rowV++;
+                    colV--;
                 }
 
 
@@ -133,6 +135,8 @@ public class Game {
                 while(isValid(rowV,colV,piece)){
                     list.add(rowV);
                     list.add(colV);
+                    rowV++;
+                    colV++;
                 }
 
 
@@ -144,6 +148,8 @@ public class Game {
                 while(isValid(rowV,colV,piece)){
                     list.add(rowV);
                     list.add(colV);
+                    rowV--;
+                    colV++;
                 }
 
             }
@@ -154,6 +160,8 @@ public class Game {
                 while(isValid(rowV,colV,piece)){
                     list.add(rowV);
                     list.add(colV);
+                    rowV--;
+                    colV--;
                 }
 
             }
@@ -225,7 +233,7 @@ public class Game {
         int colDif = 0;
 
 
-        if ((row < 8 && row >= 0) && (col < 8) && (col < 8 && col >= 0)) {
+        if ((row < 8 && row >= 0) && (col < 8 && col >= 0)) {
             rowDif = row - curPiece.getRow();
             colDif = col - curPiece.getCol();
             switch (curPiece.getStatus()) {
